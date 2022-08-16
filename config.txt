@@ -1,0 +1,4 @@
+Bovada
+postgres
+localhost
+dbpass

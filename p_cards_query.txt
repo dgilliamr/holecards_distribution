@@ -1,0 +1,94 @@
+SELECT
+    (tourney_hand_summary.id_hand) as "id_hand",
+    (
+        (case when((tourney_hand_player_statistics.holecard_1) = 0) then  '' else
+            (case when((tourney_hand_player_statistics.holecard_1) % 13 = 0) then  'A' else
+                (case when((tourney_hand_player_statistics.holecard_1) % 13 = 12) then  'K' else
+                    (case when((tourney_hand_player_statistics.holecard_1) % 13 = 11) then  'Q' else
+                        (case when((tourney_hand_player_statistics.holecard_1) % 13 = 10) then  'J' else
+                            (case when((tourney_hand_player_statistics.holecard_1) % 13 = 9) then  'T' else
+                                (case when((tourney_hand_player_statistics.holecard_1) % 13 = 8) then  '9' else
+                                    (case when((tourney_hand_player_statistics.holecard_1) % 13 = 7) then  '8' else
+                                        (case when((tourney_hand_player_statistics.holecard_1) % 13 = 6) then  '7' else
+                                            (case when((tourney_hand_player_statistics.holecard_1) % 13 = 5) then  '6' else
+                                                (case when((tourney_hand_player_statistics.holecard_1) % 13 = 4) then  '5' else
+                                                    (case when((tourney_hand_player_statistics.holecard_1) % 13 = 3) then  '4' else
+                                                        (case when((tourney_hand_player_statistics.holecard_1) % 13 = 2) then  '3' else
+                                                            (case when((tourney_hand_player_statistics.holecard_1) % 13 = 1) then  '2' else  'hole card error'
+                                                            end)
+                                                        end)
+                                                    end)
+                                                end)
+                                            end)
+                                        end)
+                                    end)
+                                end)
+                            end)
+                        end)
+                    end)
+                end)
+            end)
+        end)
+    ) as "card1",
+    (
+        (case when((tourney_hand_player_statistics.holecard_1) = 0) then  '' else
+            (case when((CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_1) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 1) then  'c' else
+                (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_1) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 2) then  'd' else
+                    (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_1) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 3) then  'h' else
+                        (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_1) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 4) then  's' else  'hole card suit error'
+                        end)
+                    end)
+                end)
+            end)
+        end)
+    ) as "card1_suit",
+    (
+        (case when((tourney_hand_player_statistics.holecard_2) = 0) then  '' else
+            (case when((tourney_hand_player_statistics.holecard_2) % 13 = 0) then  'A' else
+                (case when((tourney_hand_player_statistics.holecard_2) % 13 = 12) then  'K' else
+                    (case when((tourney_hand_player_statistics.holecard_2) % 13 = 11) then  'Q' else
+                        (case when((tourney_hand_player_statistics.holecard_2) % 13 = 10) then  'J' else
+                            (case when((tourney_hand_player_statistics.holecard_2) % 13 = 9) then  'T' else
+                                (case when((tourney_hand_player_statistics.holecard_2) % 13 = 8) then  '9' else
+                                    (case when((tourney_hand_player_statistics.holecard_2) % 13 = 7) then  '8' else
+                                        (case when((tourney_hand_player_statistics.holecard_2) % 13 = 6) then  '7' else
+                                            (case when((tourney_hand_player_statistics.holecard_2) % 13 = 5) then  '6' else
+                                                (case when((tourney_hand_player_statistics.holecard_2) % 13 = 4) then  '5' else
+                                                    (case when((tourney_hand_player_statistics.holecard_2) % 13 = 3) then  '4' else
+                                                        (case when((tourney_hand_player_statistics.holecard_2) % 13 = 2) then  '3' else
+                                                            (case when((tourney_hand_player_statistics.holecard_2) % 13 = 1) then  '2' else  'hole card error'
+                                                            end)
+                                                        end)
+                                                    end)
+                                                end)
+                                            end)
+                                        end)
+                                    end)
+                                end)
+                            end)
+                        end)
+                    end)
+                end)
+            end)
+        end)
+    ) as "card2",
+    (
+        (case when((tourney_hand_player_statistics.holecard_2) = 0) then  '' else
+            (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_2) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 1) then  'c' else
+                (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_2) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 2) then  'd' else
+                    (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_2) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 3) then  'h' else
+                        (case when( (CASE WHEN ( 13 ) <> 0 THEN ((((tourney_hand_player_statistics.holecard_2) - 1) * 1.0 )/( 13 )) ELSE 0 END) < 4) then  's' else  'hole card suit error'
+                        end)
+                    end)
+                end)
+            end)
+        end)
+    ) as "card2_suit"
+    FROM tourney_hand_player_statistics, tourney_hand_summary, lookup_actions lookup_actions_p, player player_real, tourney_blinds
+    WHERE  (tourney_hand_summary.id_hand = tourney_hand_player_statistics.id_hand  AND tourney_hand_summary.id_blinds = tourney_hand_player_statistics.id_blinds)  AND
+        (lookup_actions_p.id_action=tourney_hand_player_statistics.id_action_p)  AND
+        (player_real.id_player = tourney_hand_player_statistics.id_player_real)  AND
+        (tourney_blinds.id_blinds = tourney_hand_player_statistics.id_blinds)  AND
+        (tourney_blinds.id_blinds = tourney_hand_summary.id_blinds)   AND
+        (tourney_blinds.flg_nl=true)
+    ORDER BY (timezone('UTC',  tourney_hand_player_statistics.date_played  + INTERVAL '0 HOURS')) desc
